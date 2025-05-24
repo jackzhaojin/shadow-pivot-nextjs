@@ -26,3 +26,11 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_DB5556BB61184D708CE635E139634BA5 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_175C227A37A54C389C8137801ABCE231 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_FD05A5B616EC413AA247DA3C419676F7 }}
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'shadow-pivot-nextjsv2'
+          slot-name: 'Production'
+          package: .
