@@ -1,0 +1,9 @@
+# gpt generated
+node_modules
+.next
+Dockerfile
+.dockerignore
+.git
+.vscode
+# new from me
+.github
