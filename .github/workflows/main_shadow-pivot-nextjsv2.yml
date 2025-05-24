@@ -13,7 +13,7 @@ permissions:
 env:
   IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/shadow-pivot-nextjs
   RESOURCE_GROUP_NAME: ShadowPivot
-  WEBAPP_NAME: shadow-pivot-nextjsv2
+  WEBAPP_NAME: shadow-pivot-nextjsv3
 
 jobs:
   build-and-push:
