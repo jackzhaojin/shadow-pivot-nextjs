@@ -21,7 +21,7 @@ export default function Home() {
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <DeployButton />
+          <DeployButton href="/tsla-dashboard" />
           <DocsButton />
         </div>
       </main>
