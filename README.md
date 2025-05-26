@@ -2,47 +2,59 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Local dev server
+
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Local docker server
+```bash
+docker build -t shadow-pivot-nextjs .
+docker run -p 3000:3000 --name shadow-pivot-nextjs-container shadow-pivot-nextjs
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Azure Server Deployment
+Web app deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Free ASP plan
 
-## Learn More
+Github container repository (ghcr), since it's public we don't need authentication
 
-To learn more about Next.js, take a look at the following resources:
+### Environment Variables
+#### App settings
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `DOCKER_REGISTRY_SERVER_PASSWORD`: blank
+- `DOCKER_REGISTRY_SERVER_URL`: ghcr.io
+- `DOCKER_REGISTRY_SERVER_USERNAME`: blank
+- `WEBSITES_ENABLE_APP_SERVICE_STORAGE`: false
+- `WEBSITES_PORT`: 3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Dev Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Project bootstrapped with `npx create-next-app@latest` using the following options:
+  - TypeScript, ESLint, Tailwind CSS enabled
+  - App Router and Turbopack enabled
+  - No `src/` directory, default import alias
+- Local development: `npm run dev`
+- Local Docker: build and run with provided Docker commands
+- Azure deployment: uses Free ASP plan, public GitHub Container Registry (ghcr), no authentication required
+- Key environment variables for Azure App Service are documented in the Environment Variables section
 
 ## Parameters I used
-npx create-next-app@latest
-✔ What is your project named? … shadow-pivot-nextjs
-✔ Would you like to use TypeScript? …  Yes
-✔ Would you like to use ESLint? … Yes
-✔ Would you like to use Tailwind CSS? …  Yes
-✔ Would you like your code inside a `src/` directory? … No
-✔ Would you like to use App Router? (recommended) … Yes
-✔ Would you like to use Turbopack for `next dev`? … Yes
-✔ Would you like to customize the import alias (`@/*` by default)? … No
+
+`npx create-next-app@latest`
+
+- ✔ What is your project named? … shadow-pivot-nextjs
+- ✔ Would you like to use TypeScript? …  Yes
+- ✔ Would you like to use ESLint? … Yes
+- ✔ Would you like to use Tailwind CSS? …  Yes
+- ✔ Would you like your code inside a `src/` directory? … No
+- ✔ Would you like to use App Router? (recommended) … Yes
+- ✔ Would you like to use Turbopack for `next dev`? … Yes
+- ✔ Would you like to customize the import alias (`@/*` by default)? … No
+
 Creating a new Next.js app in /Users/jack.jin/accdev/professional/git/shadow-pivot-nextjs/shadow-pivot-nextjs.
