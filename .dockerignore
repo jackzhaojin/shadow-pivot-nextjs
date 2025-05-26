@@ -7,3 +7,5 @@ Dockerfile
 .vscode
 # new from me
 .github
+local-only
+/docs
